@@ -32,6 +32,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: $body-text-color;
+  background: #2f3436;
 }
 
 #skip-to-content {
@@ -373,6 +374,9 @@ a {
 #all-movies li{
   margin: 5px 5px 5px 5px;
   padding:0;
+  -webkit-box-shadow: 4px 4px 22px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 22px -5px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 22px -5px rgba(0,0,0,0.75);
 }
 #all-movies img {
  width: 11rem; 
