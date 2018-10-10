@@ -378,6 +378,10 @@ a {
   -moz-box-shadow: 4px 4px 22px -5px rgba(0,0,0,0.75);
   box-shadow: 4px 4px 22px -5px rgba(0,0,0,0.75);
 }
+#all-movies p {
+  margin: 0;
+  padding: 0; 
+}
 #all-movies img {
  width: 11rem; 
 }
