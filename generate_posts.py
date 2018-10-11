@@ -29,6 +29,7 @@ def generate(ids_path):
 		title = re.findall(r'<h1 .*?>([^"]+)&nbsp;<', res, re.M | re.I | re.U | re.S)[0]
 		titleOrig = re.findall(r'<div class="originalTitle">.*?([^<]+)', res, re.M | re.I | re.U | re.S)
 		title = titleOrig[0] if titleOrig else title
+		title = title.replace(':','')
 		data = tpl.format(img=img, title=title)
 		print(repr(title))
 		path = "%s-%s.md" % (_date, re.sub(r'[^a-zA-z0-9]+','-',title.lower().strip()))
