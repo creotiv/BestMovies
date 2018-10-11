@@ -1,0 +1,7 @@
+---
+layout: post
+title: Last Action Hero
+categories: []
+tags: []
+---
+![Last Action Hero](https://m.media-amazon.com/images/M/MV5BNjdhOGY1OTktYWJkZC00OGY5LWJhY2QtZmQzZDA2MzY5MmNmXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1.jpg)
