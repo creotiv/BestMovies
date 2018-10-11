@@ -18,7 +18,7 @@ def generate(ids_path):
 	with open(ids_path) as fp:
 		ids = json.loads(fp.read())
    
-	_date = date.today().strftime('%Y-%m-%d')
+	_date = "2018-10-11"
 	for id in ids:
 		id = 'https://www.imdb.com/title/%s/' % id
 		print(id)
