@@ -22,17 +22,18 @@ def generate(ids_path):
 	for id in ids:
 		id = 'https://www.imdb.com/title/%s/' % id
 		print(id)
-		res = requests.get(id, headers={'Accept-Language': 'en-US,en;q=0.9,ru-UA;q=0.8,ru;q=0.7'})
+		res = requests.get(id, headers={'Accept-Language': 'en-US,en;q=0.9'})
 		res = res.content.decode('utf-8')
 		img = re.findall(r'class="poster">.*?src="([^"]+)', res, re.M | re.I | re.U | re.S)[0]
 		img = "%s_V1.jpg" % img.split('_')[0]
-		title = re.findall(r'<h1 .*?>([^"]+)&nbsp;<', res, re.M | re.I | re.U | re.S)[0]
+		title = re.findall(r'<h1[^>]+>([^"]+)&nbsp;', res, re.M | re.I | re.U | re.S)[0]
 		titleOrig = re.findall(r'<div class="originalTitle">.*?([^<]+)', res, re.M | re.I | re.U | re.S)
-		title = titleOrig[0] if titleOrig else title
+		tl = len(re.sub(r'[^a-zA-z0-9]+','',title).strip())
+		title = titleOrig[0] if tl < 5 else title
 		title = title.replace(':','')
 		data = tpl.format(img=img, title=title)
 		print(repr(title))
-		path = "%s-%s.md" % (_date, re.sub(r'[^a-zA-z0-9]+','-',title.lower().strip()))
+		path = "%s-%s.md" % (_date, re.sub(r'[^a-zA-z0-9]+','-',title.lower().strip()).strip('-'))
 		print(path)
 		with open('_posts/%s' % path, 'wb') as fp:
 			fp.write(data.encode('utf-8'))
